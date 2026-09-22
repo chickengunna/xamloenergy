@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Xam Energy — энергетик без понтов и занудства. Шесть вкусов, 135 мг кофеина в банке.">
+<title>Xam Energy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Onest:wght@400;500;700&family=Rubik+Bubbles&family=Unbounded:wght@700;900&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --green:#45DE8F; --sky:#C7F0FF; --pink:#FFD6EC; --lilac:#E19BE9;
+  --blue:#47A3FF; --orange:#FF5C1A; --rust:#C24A1B; --yellow:#FFD23F;
+  --cream:#FFFDF5; --ink:#000; --text:#1a1a1a; --muted:#525252; --white:#fff;
+  --hand:"Balsamiq Sans","Comic Sans MS",cursive;
+  --display:"Unbounded","Arial Black",sans-serif;
+  --body:"Onest",system-ui,sans-serif;
+  --bubble:"Rubik Bubbles","Unbounded",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--white);color:var(--text);font:400 17px/1.55 var(--body)}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:20px}
+
+/* ---------- announcement ---------- */
+.bar{background:var(--orange);color:var(--cream);font:700 17px/1 var(--hand);overflow:hidden;white-space:nowrap;padding-block:10px;border-bottom:3px solid var(--ink)}
+.track{display:inline-flex;gap:48px;animation:run 32s linear infinite;padding-left:48px}
+.track span{display:inline-flex;gap:48px}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* ---------- header ---------- */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;padding-block:12px}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pill{background:var(--ink);color:var(--white);border-radius:999px;display:flex;align-items:center;height:48px}
+.logo{padding:0 18px 0 8px;gap:10px;text-decoration:none;font:900 15px/1 var(--display);letter-spacing:.04em}
+.logo i{width:34px;height:34px;border-radius:50%;background:var(--white);display:grid;place-items:center}
+nav.pill{padding:0 22px;gap:22px;font:700 17px/1 var(--hand);text-transform:uppercase}
+nav a{text-decoration:none;padding:6px 2px}
+nav a:hover{color:var(--yellow)}
+.bolt-ico{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;border:2px solid var(--white);transform:rotate(-8deg)}
+.tools{padding:0 16px;gap:14px}
+.tools button{background:none;border:0;color:inherit;display:grid;place-items:center;padding:4px;position:relative}
+.cart b{position:absolute;top:-6px;right:-8px;background:var(--green);color:var(--ink);font:700 11px/18px var(--body);min-width:18px;height:18px;border-radius:9px;text-align:center;transition:transform .2s}
+.cart b.bump{transform:scale(1.5)}
+.menu-btn{display:none}
+@media (max-width:900px){
+  nav.pill{display:none}
+  .menu-btn{display:grid}
+  nav.pill.open{display:flex;position:absolute;top:66px;left:20px;right:20px;height:auto;flex-direction:column;align-items:flex-start;border-radius:28px;padding:18px 24px;gap:10px}
+  nav.pill.open .bolt-ico{display:none}
+}
+
+/* ---------- hero ---------- */
+.hero{background:var(--pink);margin-top:-72px;padding-top:110px;padding-bottom:40px;position:relative;overflow:hidden;border-bottom:3px solid var(--ink)}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;align-items:center}
+.eyebrow{display:inline-block;font:700 15px/1 var(--hand);background:var(--white);border:2px solid var(--ink);border-radius:999px;padding:8px 14px;transform:rotate(-2deg)}
+h1{font:700 clamp(46px,7.4vw,104px)/.92 var(--hand);margin:22px 0 18px;letter-spacing:-.01em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--orange);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill}
+.lede{font-size:19px;max-width:30ch;margin:0 0 28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font:700 18px/1 var(--hand);border:3px solid var(--ink);border-radius:999px;padding:15px 26px;background:var(--ink);color:var(--white);text-decoration:none;box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.alt{background:var(--yellow);color:var(--ink)}
+.btn.w{background:var(--white);color:var(--ink)}
+.cans{position:relative;height:520px}
+.cans .c{position:absolute;width:190px;filter:drop-shadow(6px 8px 0 rgba(0,0,0,.18));transition:transform .3s}
+.cans .c:hover{transform:rotate(0) translateY(-10px)!important}
+.c1{left:2%;top:90px;transform:rotate(-14deg)}
+.c2{left:26%;top:10px;transform:rotate(4deg);z-index:2}
+.c3{left:52%;top:70px;transform:rotate(15deg);z-index:1}
+.c4{left:34%;top:250px;transform:rotate(-6deg);z-index:3;width:170px!important}
+.sticker{position:absolute;right:0;bottom:12px;width:150px;height:150px;z-index:5}
+.sticker svg{animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spark{position:absolute;animation:twk 2.4s ease-in-out infinite}
+@keyframes twk{50%{transform:scale(.7) rotate(20deg)}}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .cans{height:400px;max-width:460px;width:100%;margin:0 auto}
+  .cans .c{width:140px}.c4{width:128px!important;top:200px}
+  .sticker{width:110px;height:110px}
+}
+
+/* ---------- promo (zero) ---------- */
+.promo{padding-block:56px}
+.promo-card{background:var(--ink);color:var(--cream);border-radius:40px;display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center;padding:36px 44px;position:relative;overflow:hidden}
+.promo-card .tag{font:700 15px/1 var(--hand);color:var(--ink);background:var(--green);border-radius:999px;padding:8px 14px;display:inline-block;transform:rotate(-3deg)}
+.promo-card h2{font:900 clamp(28px,3.6vw,46px)/1.02 var(--display);margin:14px 0 10px;text-transform:lowercase}
+.promo-card p{margin:0;color:#d9d6cc;max-width:48ch}
+.promo-card .can-s{width:120px;transform:rotate(-10deg)}
+@media (max-width:760px){.promo-card{grid-template-columns:1fr;padding:30px 24px;text-align:left}.promo-card .can-s{width:96px}}
+
+/* ---------- marquee breaker ---------- */
+.breaker{background:var(--lilac);border-block:3px solid var(--ink);overflow:hidden;white-space:nowrap;padding-block:26px}
+.breaker .track{font:400 clamp(40px,6vw,76px)/1 var(--bubble);color:var(--ink);animation-duration:26s;align-items:center}
+.breaker.b2{background:var(--yellow)}
+.breaker.b2 .track{animation-direction:reverse}
+.star{display:inline-block;width:.6em;height:.6em;vertical-align:middle}
+
+/* ---------- lineup ---------- */
+.lineup{background:var(--sky);padding-block:80px}
+.sec-h{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+h2.big{font:700 clamp(40px,5.4vw,72px)/.95 var(--hand);margin:0;text-wrap:balance}
+.sec-h p{max-width:38ch;margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media (max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--white);border:3px solid var(--ink);border-radius:32px;overflow:hidden;display:flex;flex-direction:column;box-shadow:6px 6px 0 var(--ink)}
+.card .art{height:290px;display:grid;place-items:center;border-bottom:3px solid var(--ink);position:relative}
+.card .art svg.can{width:130px;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.card:hover .art svg.can{transform:rotate(-8deg) scale(1.06)}
+.card .badge{position:absolute;top:16px;left:16px;font:700 13px/1 var(--hand);background:var(--white);border:2px solid var(--ink);border-radius:999px;padding:6px 10px}
+.card .body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font:900 22px/1.05 var(--display);margin:0;text-transform:lowercase}
+.card .notes{color:var(--muted);font-size:15px;margin:0}
+.facts{display:flex;gap:8px;flex-wrap:wrap}
+.facts span{font:500 13px/1 var(--body);border:2px solid var(--ink);border-radius:999px;padding:6px 10px;font-variant-numeric:tabular-nums}
+.buy{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px}
+.price{font:900 24px/1 var(--display);font-variant-numeric:tabular-nums}
+.price small{font:500 13px var(--body);color:var(--muted)}
+.add{font:700 16px/1 var(--hand);background:var(--blue);color:var(--white);border:3px solid var(--ink);border-radius:999px;padding:11px 18px;box-shadow:3px 3px 0 var(--ink)}
+.add:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+
+/* ---------- map ---------- */
+.find{background:var(--sky);padding-bottom:80px}
+.map-box{background:var(--yellow);border:3px solid var(--ink);max-width:980px;margin:0 auto;border-radius:6px;overflow:hidden}
+.map-box svg{display:block;width:100%;height:auto}
+.find-h{text-align:center;margin-bottom:28px}
+.find-h p{margin:10px auto 0;max-width:46ch}
+.spots{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:24px}
+.spots span{background:var(--white);border:2px solid var(--ink);border-radius:999px;padding:8px 14px;font:700 15px/1 var(--hand)}
+
+/* ---------- facts band ---------- */
+.band-w{padding-block:0 0;background:var(--white)}
+.band{background:var(--green);border-radius:44px;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:30px 36px;transform:translateY(-1px)}
+.band div{text-align:center}
+.band b{display:block;font:900 clamp(30px,4vw,52px)/1 var(--display);font-variant-numeric:tabular-nums}
+.band span{font:700 16px/1.2 var(--hand)}
+@media (max-width:760px){.band{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:26px;border-radius:32px}}
+
+/* ---------- about ---------- */
+.about{background:var(--pink);margin-top:40px;padding-block:90px;border-top:3px solid var(--ink)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about p{max-width:52ch}
+.about p.big{font:700 22px/1.4 var(--hand);color:var(--ink)}
+.mascot{max-width:420px;width:100%;margin:0 auto}
+.mascot svg{width:100%;height:auto;animation:bob 3.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-12px) rotate(3deg)}}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}.mascot{max-width:280px}}
+
+/* ---------- not snobs ---------- */
+.snobs{background:var(--white);padding-block:100px;text-align:center;position:relative;overflow:hidden}
+.snobs h2{font:900 clamp(44px,8vw,120px)/.9 var(--display);margin:0;text-transform:lowercase;letter-spacing:-.02em}
+.snobs h2 span{display:inline-block;background:var(--orange);color:var(--white);padding:0 .15em;border-radius:.2em;transform:rotate(-2deg);-webkit-text-stroke:0}
+.snobs p{font:700 22px/1.4 var(--hand);max-width:34ch;margin:26px auto 0}
+.snobs .fl{position:absolute;width:70px}
+
+/* ---------- pack ---------- */
+.pack{background:var(--blue);border-block:3px solid var(--ink);padding-block:80px;color:var(--ink)}
+.pack-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.box{background:var(--cream);border:3px solid var(--ink);border-radius:36px;padding:24px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;box-shadow:8px 8px 0 var(--ink)}
+.box svg{width:100%;height:auto}
+.pack h2{color:var(--white);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill}
+.pack ul{list-style:none;padding:0;margin:20px 0 28px;display:grid;gap:10px}
+.pack li{font:700 19px/1.3 var(--hand);display:flex;gap:10px;align-items:center}
+.pack li::before{content:"";width:22px;height:22px;flex:none;border-radius:50%;background:var(--yellow);border:2px solid var(--ink)}
+.pack .price-l{font:900 40px/1 var(--display);margin-bottom:18px}
+.pack .price-l s{font:500 20px var(--body);opacity:.7;margin-left:8px}
+@media (max-width:860px){.pack-grid{grid-template-columns:1fr}.box{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* ---------- footer ---------- */
+footer{background:var(--green);padding-block:64px 28px;color:var(--ink)}
+.f-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.4fr;gap:32px}
+footer h4{font:700 18px/1 var(--hand);margin:0 0 14px;text-transform:uppercase}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer ul a{text-decoration:none}
+footer ul a:hover{text-decoration:underline}
+.news{display:flex;gap:8px;margin-top:4px}
+.news input{flex:1;min-width:0;font:500 16px var(--body);border:3px solid var(--ink);border-radius:999px;padding:12px 16px;background:var(--white)}
+.news button{font:700 16px/1 var(--hand);border:3px solid var(--ink);border-radius:999px;background:var(--ink);color:var(--white);padding:0 18px}
+.news-msg{font:700 15px var(--hand);min-height:1.4em;margin-top:8px}
+.wordmark{font:900 clamp(80px,22vw,300px)/.85 var(--display);letter-spacing:-.04em;margin:48px 0 12px;color:var(--white);-webkit-text-stroke:4px var(--ink);paint-order:stroke fill;white-space:nowrap;text-align:center}
+.legal{font-size:13px;color:#14532d;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:2px solid var(--ink);padding-top:16px}
+.legal p{margin:0;max-width:80ch}
+@media (max-width:860px){.f-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.f-grid{grid-template-columns:1fr}}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140%);background:var(--ink);color:var(--white);font:700 17px/1 var(--hand);padding:14px 22px;border-radius:999px;transition:transform .3s;z-index:50;white-space:nowrap}
+.toast.on{transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+
+</head>
+<body>
+<div class="bar" aria-label="Объявление">
+  <div class="track" id="barTrack"><span>Новинка: Xam Zero без сахара уже на полках ✦ Бесплатная доставка по Москве от 12 банок ✦ Шесть вкусов, ноль занудства ✦</span></div>
+</div>
+
+<header>
+  <div class="wrap hdr">
+    <a class="pill logo" href="#top" aria-label="Xam Energy — наверх">
+      <i><svg width="22" height="22" viewBox="0 0 24 24"><path d="M13.5 1 4 13.5h6.5L9 23l10-13h-6.8z" fill="#FF5C1A" stroke="#000" stroke-width="1.8" stroke-linejoin="round"/></svg></i>
+      XAM ENERGY
+    </a>
+    <nav class="pill" id="nav">
+      <a href="#shop">Вкусы</a>
+      <a href="#about">О нас</a>
+      <a href="#pack">Опт</a>
+      <span class="bolt-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M13.5 1 4 13.5h6.5L9 23l10-13h-6.8z" fill="#FFD23F" stroke="#000" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+      <a href="#find">Где купить</a>
+      <a href="#contacts">Контакты</a>
+      <a href="#pack">Подписка</a>
+    </nav>
+    <div class="pill tools">
+      <button class="menu-btn" id="menuBtn" aria-label="Меню" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button aria-label="Поиск"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5" stroke-linecap="round"/></svg></button>
+      <button aria-label="Профиль"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4.5"/><path d="M3.5 22c.8-5 4.2-7.5 8.5-7.5s7.7 2.5 8.5 7.5z"/></svg></button>
+      <button class="cart" aria-label="Корзина"><svg width="18" height="20" viewBox="0 0 22 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M3 7h16l-1.4 15H4.4z"/><path d="M7.5 9V5.5a3.5 3.5 0 0 1 7 0V9"/></svg><b id="cartN">0</b></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">газированный энергетик · 0,45 л</span>
+        <h1>энергия <em>без понтов</em> и&nbsp;занудства</h1>
+        <p class="lede">Шесть ярких вкусов, 135 мг кофеина в банке и характер, с которым хочется дружить.</p>
+        <div class="btns">
+          <a class="btn alt" href="#shop">Выбрать вкус</a>
+          <a class="btn w" href="#find">Где купить</a>
+        </div>
+      </div>
+      <div class="cans" aria-hidden="true">
+        <div class="c c1" data-can="mango"></div>
+        <div class="c c2" data-can="blue"></div>
+        <div class="c c3" data-can="berry"></div>
+        <div class="c c4" data-can="lime"></div>
+        <div class="sticker">
+          <svg viewBox="0 0 160 160">
+            <circle cx="80" cy="80" r="76" fill="#45DE8F" stroke="#000" stroke-width="3"/>
+            <path id="sp" d="M80,80 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0" fill="none"/>
+            <text font-family="Balsamiq Sans, cursive" font-weight="700" font-size="17" letter-spacing="2"><textPath href="#sp">ПОПРОБУЙ ВЖИВУЮ ✦ ПОПРОБУЙ ВЖИВУЮ ✦</textPath></text>
+            <path d="M84 50 62 84h15l-4 26 25-36H82z" fill="#FFD23F" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="promo">
+    <div class="wrap">
+      <div class="promo-card">
+        <div class="can-s" data-can="zero"></div>
+        <div>
+          <span class="tag">только что вышел</span>
+          <h2>xam zero: весь заряд, ноль сахара</h2>
+          <p>Тот же кофеин и таурин, что в классике, но на эритрите и стевии. Вкус — кола с лаймом, чёрная банка, никаких компромиссов.</p>
+        </div>
+        <button class="btn alt" data-add="zero">В корзину — 139 ₽</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="breaker" aria-hidden="true"><div class="track" data-marquee="энергия без занудства"></div></div>
+
+  <section class="lineup" id="shop">
+    <div class="wrap">
+      <div class="sec-h">
+        <h2 class="big">шесть вкусов.<br>выбери свой заряд</h2>
+        <p>Каждая банка — 0,45 л, 30 мг кофеина и 400 мг таурина на 100 мл, витамины B3, B6 и B12. Разница только во вкусе и настроении.</p>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="find" id="find">
+    <div class="wrap">
+      <div class="find-h">
+        <h2 class="big">найди нас вживую</h2>
+        <p>Холодильники Xam стоят в кофейнях, спортзалах и круглосуточных у метро. Вот любимые точки.</p>
+      </div>
+      <div class="map-box">
+        <svg viewBox="0 0 900 480" role="img" aria-label="Карта точек продаж Xam в Москве">
+          <rect width="900" height="480" fill="#FFD23F"/>
+          <!-- ring roads -->
+          <ellipse cx="450" cy="230" rx="330" ry="190" fill="none" stroke="#000" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+          <ellipse cx="450" cy="230" rx="190" ry="115" fill="none" stroke="#000" stroke-width="3"/>
+          <path d="M450 0v480M0 230h900M130 40l640 380M770 40 130 420" stroke="#000" stroke-width="2" opacity=".25"/>
+          <!-- river -->
+          <path d="M-10 300c90-60 160 40 250 0s80-120 170-110 70 110 160 120 110-90 200-70 90 70 140 60" fill="none" stroke="#000" stroke-width="26" stroke-linecap="round"/>
+          <path d="M-10 300c90-60 160 40 250 0s80-120 170-110 70 110 160 120 110-90 200-70 90 70 140 60" fill="none" stroke="#47A3FF" stroke-width="20" stroke-linecap="round"/>
+          <text x="232" y="355" font-family="Balsamiq Sans, cursive" font-size="17" font-weight="700" transform="rotate(-8 232 355)">москва-река</text>
+          <!-- park -->
+          <path d="M520 330c30-20 90-18 110 10s-10 60-60 60-80-45-50-70z" fill="#45DE8F" stroke="#000" stroke-width="3"/>
+          <g fill="#FF5C1A" stroke="#000" stroke-width="2"><circle cx="560" cy="350" r="8"/><circle cx="592" cy="366" r="7"/></g>
+          <!-- kremlin doodle -->
+          <g transform="translate(418 186)" stroke="#000" stroke-width="3" stroke-linejoin="round">
+            <path d="M0 44V18h40v26z" fill="#FF5C1A"/><path d="M12 18V6h16v12z" fill="#FFFDF5"/><path d="M12 6l8-14 8 14z" fill="#45DE8F"/>
+          </g>
+          <!-- sparkles -->
+          <g fill="#FFFDF5" stroke="#000" stroke-width="2.5" stroke-linejoin="round">
+            <path d="M92 90l6 14 14 6-14 6-6 14-6-14-14-6 14-6z"/>
+            <path d="M800 380l5 11 11 5-11 5-5 11-5-11-11-5 11-5z"/>
+            <path d="M720 70l4 9 9 4-9 4-4 9-4-9-9-4 9-4z"/>
+          </g>
+          <!-- pins -->
+          <g font-family="Balsamiq Sans, cursive" font-weight="700" font-size="18">
+            <g class="pin" transform="translate(300 150)"><circle r="17" fill="#FF5C1A" stroke="#000" stroke-width="3"/><circle r="6" fill="#FFFDF5" stroke="#000" stroke-width="2.5"/><text x="-40" y="-28">патрики</text></g>
+            <g class="pin" transform="translate(528 180)"><circle r="17" fill="#FF5C1A" stroke="#000" stroke-width="3"/><circle r="6" fill="#FFFDF5" stroke="#000" stroke-width="2.5"/><text x="24" y="6">китай-город</text></g>
+            <g class="pin" transform="translate(640 96)"><circle r="17" fill="#FF5C1A" stroke="#000" stroke-width="3"/><circle r="6" fill="#FFFDF5" stroke="#000" stroke-width="2.5"/><text x="24" y="6">флакон</text></g>
+            <g class="pin" transform="translate(470 330)"><circle r="17" fill="#FF5C1A" stroke="#000" stroke-width="3"/><circle r="6" fill="#FFFDF5" stroke="#000" stroke-width="2.5"/><text x="-150" y="36">парк горького</text></g>
+            <g class="pin" transform="translate(200 250)"><circle r="17" fill="#FF5C1A" stroke="#000" stroke-width="3"/><circle r="6" fill="#FFFDF5" stroke="#000" stroke-width="2.5"/><text x="-60" y="44">хлебозавод</text></g>
+          </g>
+          <text x="450" y="455" text-anchor="middle" font-family="Balsamiq Sans, cursive" font-size="22" font-weight="700">бодрость на каждом углу</text>
+        </svg>
+      </div>
+      <div class="spots"><span>Патрики</span><span>Китай-город</span><span>Флакон</span><span>Парк Горького</span><span>Хлебозавод</span></div>
+    </div>
+  </section>
+
+  <section class="band-w" aria-label="Состав одной банки">
+    <div class="wrap">
+      <div class="band">
+        <div><b>135</b><span>мг кофеина в банке</span></div>
+        <div><b>0 г</b><span>сахара в Xam Zero</span></div>
+        <div><b>B3·B6·B12</b><span>витамины группы B</span></div>
+        <div><b>450</b><span>мл — большая банка</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="eyebrow">привет!</span>
+        <h2 class="big" style="margin:18px 0 20px">мы — Xam</h2>
+        <p class="big">Мы делаем энергетик, который не притворяется «топливом для чемпионов» и не кричит на тебя чёрно-красной банкой.</p>
+        <p>Xam — это про утро перед парой, про второй час кодинга, про велик до дачи и про ночной монтаж. Вкусы собираем из настоящих фруктовых соков и честно пишем, сколько в банке кофеина. Никаких «секретных формул» — всё на обороте.</p>
+        <p>Наш талисман — Искра. Она всегда на связи и никогда не разряжается.</p>
+      </div>
+      <div class="mascot" aria-hidden="true">
+        <svg viewBox="0 0 300 340">
+          <ellipse cx="150" cy="322" rx="80" ry="12" fill="#000" opacity=".12"/>
+          <path d="M178 12 58 182h72l-26 140L246 132h-78l38-120z" fill="#FFD23F" stroke="#000" stroke-width="6" stroke-linejoin="round"/>
+          <ellipse cx="134" cy="150" rx="11" ry="15" fill="#000"/><ellipse cx="176" cy="150" rx="11" ry="15" fill="#000"/>
+          <circle cx="138" cy="144" r="4" fill="#fff"/><circle cx="180" cy="144" r="4" fill="#fff"/>
+          <path d="M136 182q20 22 40 0" fill="#FF5C1A" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="112" cy="178" r="9" fill="#FF8FC7"/><circle cx="198" cy="178" r="9" fill="#FF8FC7"/>
+          <g fill="#fff" stroke="#000" stroke-width="3.5" stroke-linejoin="round">
+            <path d="M40 60l8 18 18 8-18 8-8 18-8-18-18-8 18-8z"/>
+            <path d="M258 220l6 13 13 6-13 6-6 13-6-13-13-6 13-6z"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="breaker b2" aria-hidden="true"><div class="track" data-marquee="бодрость не должна быть скучной"></div></div>
+
+  <section class="snobs">
+    <svg class="fl" style="left:6%;top:18%" viewBox="0 0 60 60"><path d="M30 2l7 21 21 7-21 7-7 21-7-21-21-7 21-7z" fill="#E19BE9" stroke="#000" stroke-width="3" stroke-linejoin="round"/></svg>
+    <svg class="fl" style="right:8%;top:60%" viewBox="0 0 60 60"><path d="M36 2 12 34h14l-4 24 24-32H32z" fill="#45DE8F" stroke="#000" stroke-width="3" stroke-linejoin="round"/></svg>
+    <div class="wrap">
+      <h2>не для <span>энерго-снобов</span></h2>
+      <p>Не нужно разбираться в гуаране и L-карнитине, чтобы выбрать банку. Xam — для всех, и особенно для тебя.</p>
+    </div>
+  </section>
+
+  <section class="pack" id="pack">
+    <div class="wrap pack-grid">
+      <div class="box" id="box" aria-hidden="true"></div>
+      <div>
+        <h2 class="big">микс-ящик на&nbsp;12&nbsp;банок</h2>
+        <ul>
+          <li>по две банки каждого из шести вкусов</li>
+          <li>бесплатная доставка по Москве</li>
+          <li>подписка раз в месяц — ещё минус 10%</li>
+        </ul>
+        <div class="price-l">1 390 ₽ <s>1 548 ₽</s></div>
+        <button class="btn" data-add="box">Собрать ящик</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacts">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <h4>Xam Energy</h4>
+        <p style="margin:0;max-width:30ch">Москва, ул. Электрозаводская, 21<br>hello@xam-energy.ru<br>+7 (495) 000-00-00</p>
+      </div>
+      <div>
+        <h4>Магазин</h4>
+        <ul><li><a href="#shop">Все вкусы</a></li><li><a href="#pack">Микс-ящик</a></li><li><a href="#pack">Подписка</a></li><li><a href="#find">Где купить</a></li></ul>
+      </div>
+      <div>
+        <h4>О нас</h4>
+        <ul><li><a href="#about">История</a></li><li><a href="#pack">Опт и кофейни</a></li><li><a href="#contacts">Поддержка</a></li><li><a href="#contacts">Возврат</a></li></ul>
+      </div>
+      <div>
+        <h4>Подпишись на новости</h4>
+        <form class="news" id="news">
+          <label for="email" class="sr" style="position:absolute;left:-9999px">Эл. почта</label>
+          <input id="email" type="email" required placeholder="твоя@почта.ру">
+          <button type="submit">Хочу</button>
+        </form>
+        <div class="news-msg" id="newsMsg" aria-live="polite">Новые вкусы — первым. Без спама.</div>
+      </div>
+    </div>
+    <div class="wordmark" aria-hidden="true">XAM</div>
+    <div class="legal">
+      <p>Безалкогольный тонизирующий напиток. Не рекомендуется детям до 18 лет, беременным и кормящим женщинам, лицам с повышенной нервной возбудимостью, бессонницей, повышенным артериальным давлением. Не более двух банок в сутки.</p>
+      <p>© 2026 Xam Energy</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const FLAVORS = {
+  mango: {name:"манго бум", label:"МАНГО БУМ", body:"#FF5C1A", band:"#FFD23F", dot:"#FFFDF5", word:"#FFFDF5", notes:"Спелое манго и маракуйя. Сочно, громко, как летний фестиваль.", price:129, badge:"хит"},
+  blue:  {name:"синий шторм", label:"СИНИЙ ШТОРМ", body:"#47A3FF", band:"#C7F0FF", dot:"#FFD23F", word:"#FFFDF5", notes:"Голубая малина с холодком. Вкус школьного мармелада, только бодрее.", price:129, badge:"освежает"},
+  berry: {name:"черничный разряд", label:"ЧЕРНИКА", body:"#E19BE9", band:"#47A3FF", dot:"#FFFDF5", word:"#FFFDF5", notes:"Черника и чёрная смородина. Мягкая кислинка и фиолетовый язык.", price:129, badge:"ягодный"},
+  lime:  {name:"лайм вольт", label:"ЛАЙМ ВОЛЬТ", body:"#45DE8F", band:"#FFD6EC", dot:"#FF5C1A", word:"#FFFDF5", notes:"Лайм, мята и щепотка соли. Для тех, кто не любит слишком сладкое.", price:129, badge:"кислый"},
+  pink:  {name:"розовый шум", label:"РОЗОВЫЙ ШУМ", body:"#FFD6EC", band:"#FF5C1A", dot:"#E19BE9", word:"#FF5C1A", notes:"Розовый грейпфрут и арбуз. Лёгкий, с горчинкой, как закат на крыше.", price:129, badge:"новинка"},
+  zero:  {name:"xam zero", label:"ZERO · КОЛА-ЛАЙМ", body:"#141414", band:"#45DE8F", dot:"#FFD23F", word:"#FFFDF5", notes:"Кола с лаймом без грамма сахара. Весь заряд, ноль калорий.", price:139, badge:"без сахара"}
+};
+let uid = 0;
+function can(key){
+  const f = FLAVORS[key], id = "k" + (uid++);
+  const star = (x,y,s,fill) => `<path transform="translate(${x} ${y}) scale(${s})" d="M0-10l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="${fill}" stroke="#000" stroke-width="${2/s}" stroke-linejoin="round"/>`;
+  return `<svg class="can" viewBox="0 0 140 262" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <clipPath id="${id}"><path d="M16 36q0-14 14-16h80q14 2 14 16v196q0 14-14 16H30q-14-2-14-16z"/></clipPath>
+      <linearGradient id="${id}g" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".0"/><stop offset=".3" stop-color="#fff" stop-opacity=".45"/><stop offset=".38" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".05"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></linearGradient>
+    </defs>
+    <g clip-path="url(#${id})">
+      <rect x="0" y="0" width="140" height="262" fill="${f.body}"/>
+      <path d="M0 158c26-22 46 16 72-4s46-20 68 0v52c-24 18-44-18-70 2s-48 18-70 0z" fill="${f.band}" stroke="#000" stroke-width="3"/>
+      <g fill="${f.dot}" stroke="#000" stroke-width="2"><circle cx="30" cy="222" r="5"/><circle cx="58" cy="232" r="4"/><circle cx="110" cy="220" r="6"/><circle cx="96" cy="100" r="4"/></g>
+      <text transform="translate(34 42) rotate(90)" font-family="Unbounded, Arial Black, sans-serif" font-weight="900" font-size="54" fill="${f.word}" stroke="#000" stroke-width="7" paint-order="stroke" stroke-linejoin="round" letter-spacing="-2">XAM</text>
+      <text transform="translate(96 132) rotate(90)" font-family="Balsamiq Sans, cursive" font-weight="700" font-size="13" fill="#000" letter-spacing="3">ENERGY</text>
+      ${star(106,76,1.1,"#FFFDF5")}${star(114,142,.8,"#FFD23F")}
+      <circle cx="104" cy="50" r="14" fill="#000"/><path d="M107 40 97 53h7l-2 9 10-13h-7z" fill="#FFD23F"/>
+      <text x="70" y="${f.label.length > 12 ? 246 : 247}" text-anchor="middle" font-family="Balsamiq Sans, cursive" font-weight="700" font-size="${f.label.length > 12 ? 9 : 11.5}" fill="#000">${f.label}</text>
+      <rect x="0" y="0" width="140" height="262" fill="url(#${id}g)"/>
+    </g>
+    <path d="M16 36q0-14 14-16h80q14 2 14 16v196q0 14-14 16H30q-14-2-14-16z" fill="none" stroke="#000" stroke-width="3.5"/>
+    <path d="M22 22q2-12 14-12h68q12 0 14 12" fill="#d7d7d7" stroke="#000" stroke-width="3.5"/>
+    <rect x="18" y="16" width="104" height="8" rx="4" fill="#ececec" stroke="#000" stroke-width="3"/>
+    <rect x="58" y="7" width="26" height="7" rx="3.5" fill="#bdbdbd" stroke="#000" stroke-width="2.5"/>
+    <path d="M26 248q2 8 12 8h64q10 0 12-8" fill="#d7d7d7" stroke="#000" stroke-width="3.5"/>
+  </svg>`;
+}
+document.querySelectorAll("[data-can]").forEach(el => el.innerHTML = can(el.dataset.can));
+
+// marquees
+const starSvg = '<svg class="star" viewBox="0 0 20 20"><path d="M10 0l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#fff" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+document.querySelectorAll("[data-marquee]").forEach(t => {
+  const one = `<span>${Array(4).fill(t.dataset.marquee + " " + starSvg).join(" ")}</span>`;
+  t.innerHTML = one + one;
+});
+const bar = document.getElementById("barTrack");
+bar.innerHTML += bar.innerHTML;
+
+// lineup cards
+const tints = {mango:"#FFD6EC", blue:"#FFFDF5", berry:"#C7F0FF", lime:"#FFFDF5", pink:"#E19BE9", zero:"#45DE8F"};
+document.getElementById("grid").innerHTML = Object.entries(FLAVORS).map(([k,f]) => `
+  <article class="card">
+    <div class="art" style="background:${tints[k]}"><span class="badge">${f.badge}</span>${can(k)}</div>
+    <div class="body">
+      <h3>${f.name}</h3>
+      <p class="notes">${f.notes}</p>
+      <div class="facts"><span>0,45 л</span><span>${k === "zero" ? "3 ккал" : "46 ккал"} / 100 мл</span><span>135 мг кофеина</span></div>
+      <div class="buy"><span class="price">${f.price} ₽ <small>/ банка</small></span><button class="add" data-add="${k}">В корзину</button></div>
+    </div>
+  </article>`).join("");
+
+// pack box
+const order = ["mango","blue","berry","lime","pink","zero"];
+document.getElementById("box").innerHTML = [...order, ...order].map(can).join("");
+
+// cart
+let n = 0;
+const cartN = document.getElementById("cartN"), toast = document.getElementById("toast");
+let tt;
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-add]");
+  if (!b) return;
+  const k = b.dataset.add;
+  n += k === "box" ? 12 : 1;
+  cartN.textContent = n;
+  cartN.classList.add("bump"); setTimeout(() => cartN.classList.remove("bump"), 200);
+  toast.textContent = k === "box" ? "Микс-ящик в корзине: 12 банок" : "Добавлено: " + FLAVORS[k].name;
+  toast.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove("on"), 1800);
+});
+
+// menu
+const nav = document.getElementById("nav"), mb = document.getElementById("menuBtn");
+mb.addEventListener("click", () => { const o = nav.classList.toggle("open"); mb.setAttribute("aria-expanded", o); });
+nav.addEventListener("click", e => { if (e.target.tagName === "A") { nav.classList.remove("open"); mb.setAttribute("aria-expanded", false); } });
+
+// newsletter
+document.getElementById("news").addEventListener("submit", e => {
+  e.preventDefault();
+  document.getElementById("newsMsg").textContent = "Готово! Первое письмо — с промокодом на банку.";
+  e.target.reset();
+});
+</script>
+
+</body>
+</html>
